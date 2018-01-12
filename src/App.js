@@ -6,16 +6,18 @@ import Footer from './containers/Footer'
 import Find from './components/Find'
 import Slidebar from './components/Slidebar'
 import PlayList from './containers/PlayList'
+import Mask from './components/Mask'
 class App extends Component {
   render() {
     return (
       <div>
         <div className='header-div'>
-          <Header pathName={this.props.location.pathname}/>
+          <Header pathName={this.props.location.pathname} />
         </div>
-        <Footer/>
+        <Footer />
         <Slidebar />
-        <PlayList/>
+        <PlayList />
+        <Mask/>
       </div>
     );
   }
