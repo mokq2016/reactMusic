@@ -12,7 +12,7 @@ export  function getMainDataReducer(state={playlist:[]},action){
 export function getMusicDataReducer(state={tracks:[]},action){
   switch(action.type){
     case actionTypes.GET_MUSIC_DATA:
-    return Object.assign({},state,{tracks:action.data.playlist.tracks})
+    return Object.assign({},state,{tracks:action.data.songs.list})
     default:
     return state;
   }

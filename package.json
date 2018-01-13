@@ -105,6 +105,10 @@
    "/rank/**":{
       "target":"http://m.kugou.com",
       "changeOrigin": true
+    },
+    "/app/**":{
+      "target":"http://m.kugou.com",
+      "changeOrigin": true
     }
   }
 }

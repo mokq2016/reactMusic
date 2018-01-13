@@ -24,7 +24,7 @@ export function  fetchMusicData(){
   return (dispatch,getState) =>{
     //./data/musicData.json
     return http.get('/rank/info/?rankid=6666&page=1&json=true').then((data)=>{
-      //dispatch(getMusicData(data))
+      dispatch(getMusicData(data))
       console.log(data)
     })
   }

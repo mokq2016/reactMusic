@@ -38,10 +38,10 @@ export default class PlayList extends Animation {
           {this
             .props
             .tracks
-            .map((item, index) => <div key={index} onClick={e=> this.playSong(e,index)} className='music-item'>
+            .map((item, index) => <div key={index} onClick={e=> this.playSong(e,item.hash)} className='music-item'>
               <div className='music-name'>
-                <label>{item.name}</label>
-                <span>-{item.ar[0].name}</span>
+                <label>{item.filename}</label>
+                <span></span>
               </div>
               <div className='music-name'></div>
             </div>)}

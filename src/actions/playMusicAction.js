@@ -1,23 +1,19 @@
 import * as actionTypes from '../constants/constant'
 import {showPop} from './popAction'
+import http from '../utils/http';
 
 function playSong(data){
   return {
     type:actionTypes.PLAY_MUSIC,
-    ...data
+    data
   }
 }
-export function selectSong(index){
+export function selectSong(hash){
   return (dispatch,getState) =>{
-    let musicData = getState().getMusicDataReducer.tracks.filter((item,idx)=>{
-      return idx === index;
-    })[0];
-    let musicUrlData = getState().getMusicUrlDataReducer.filter((item,index)=>{
-      return item.data[0].id === musicData.id;
-    })[0];
-    console.log(musicData,musicUrlData)
-    dispatch(showPop(false))
-    dispatch(playSong({musicData,musicUrlData}))
+    return http.get(`/app/i/getSongInfo.php?cmd=playInfo&hash=${hash}`).then((data)=>{
+      dispatch(showPop(false));
+      dispatch(playSong(data))
+    })
   }
 }
 
