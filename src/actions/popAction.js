@@ -19,9 +19,10 @@ export function showPop(showPop){
       dispatch(startAnimate(showPop));
     }else{
       dispatch(startAnimate(showPop));
-      setTimeout(() => {
-        dispatch(showPlayListAction(showPop))
-      }, 600);
+      dispatch(showPlayListAction(showPop));
+      // setTimeout(() => {
+      //   dispatch(showPlayListAction(showPop))
+      // }, 600);
     }
    
   }

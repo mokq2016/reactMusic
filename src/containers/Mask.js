@@ -3,7 +3,7 @@ import Mask from '../components/Mask'
 
 
 const mapStateToProps = (state, ownProps) => ({
-    
+    isShowPop:state.showPopReducer.isShowPop
 })
 
 

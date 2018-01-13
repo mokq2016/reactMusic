@@ -22,8 +22,23 @@ export function fetchMainData(){
 }
 export function  fetchMusicData(){
   return (dispatch,getState) =>{
-    return http.get('./data/musicData.json').then((data)=>{
-      dispatch(getMusicData(data))
+    //./data/musicData.json
+    return http.get('/rank/info/?rankid=6666&page=1&json=true').then((data)=>{
+      //dispatch(getMusicData(data))
+      console.log(data)
+    })
+  }
+}
+function getMusicUrlData(data){
+  return {
+    type:actionTypes.GET_MUSIC_URL_DATA,
+    data
+  }
+}
+export function fetMusicUrlData(){
+  return (dispatch, getState) =>{
+    return http.get('./data/musicUrlData.json').then((data)=>{
+      dispatch(getMusicUrlData(data))
     })
   }
 }

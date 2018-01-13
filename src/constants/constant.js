@@ -7,3 +7,7 @@ export const HIDE_PLAYLIST_POP = 'HIDE_PLAYLIST_POP';
 export const START_ANIMATE = 'START_ANIMATE';
 
 export const SHOW_POP = 'SHOW_POP';
+
+export const GET_MUSIC_URL_DATA = 'GET_MUSIC_URL_DATA';
+
+export const PLAY_MUSIC = 'PLAY_MUSIC';

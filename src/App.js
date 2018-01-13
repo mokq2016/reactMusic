@@ -6,7 +6,8 @@ import Footer from './containers/Footer'
 import Find from './components/Find'
 import Slidebar from './components/Slidebar'
 import PlayList from './containers/PlayList'
-import Mask from './components/Mask'
+import Mask from './containers/Mask'
+
 class App extends Component {
   render() {
     return (

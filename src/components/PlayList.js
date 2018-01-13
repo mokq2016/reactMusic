@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { fetchMusicData } from '../actions/musicDataAction'
-import { showPop } from '../actions/popAction'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-export default class PlayList extends Component {
+import React, {Component} from 'react'
+import {fetchMusicData} from '../actions/musicDataAction'
+import {showPop} from '../actions/popAction'
+import Animation from './Animation'
+import {selectSong} from '../actions/playMusicAction'
+export default class PlayList extends Animation {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,67 +11,58 @@ export default class PlayList extends Component {
     }
   }
   render() {
-    return (
-      <ReactCSSTransitionGroup
-        transitionName='slide'
-        transitionEnterTimeout={0}
-        transitionLeaveTimeout={0}
-      >
-      
-        if(this.props.isShowPop){
-          return(
-          <div key={1} className={this.props.isShowPop ? 'play-list-wraper' : 'play-list-wraper'} onClick={e => this.clickHandle(e)}>
-          <div className={this.props.startAnimate ? 'play-list' : 'play-list'}>
-            <div className='header-bar'>
-              <div className='play-type'>
-                <i className='icon icon-music-random' />
-                <span>{'列表循环'}({33})</span>
-              </div>
-              <div className='op-div'>
-                <label>
-                  <i className='icon-add-project' />
-                  <span>收藏</span>
-                </label>
-                <label>
-                  <i className='icon-delete' />
-                  <span>清空</span>
-                </label>
-              </div>
-            </div>
-            <div className='play-content'>
-              {this.props.tracks.map((item, index) =>
-                <div key={index} className='music-item'>
-                  <div className='music-name'>
-                    <label>{item.name}</label>
-                    <span>-{item.ar[0].name}</span>
-                  </div>
-                  <div className='music-name'></div>
-                </div>
-              )}
-
-            </div>
+    //return (
+    return super.render(
+      <div className='play-list-wraper' onClick={e => this.clickHandle(e)}>
+      <div
+        className={this.props.isShowPop
+        ? 'play-list '
+        : 'play-list '}>
+        <div className='header-bar'>
+          <div className='play-type'>
+            <i className='icon icon-music-random'/>
+            <span>{'列表循环'}({33})</span>
           </div>
-        </div>)
-        }else{
-          return null;
-        }
-    
-        
-      </ReactCSSTransitionGroup>
-    )
+          <div className='op-div'>
+            <label>
+              <i className='icon-add-project'/>
+              <span>收藏</span>
+            </label>
+            <label>
+              <i className='icon-delete'/>
+              <span>清空</span>
+            </label>
+          </div>
+        </div>
+        <div className='play-content'>
+          {this
+            .props
+            .tracks
+            .map((item, index) => <div key={index} onClick={e=> this.playSong(e,index)} className='music-item'>
+              <div className='music-name'>
+                <label>{item.name}</label>
+                <span>-{item.ar[0].name}</span>
+              </div>
+              <div className='music-name'></div>
+            </div>)}
+
+        </div>
+      </div>
+    </div>, this.props.isShowPop, 'slide')
   }
-  count = 1;
   clickHandle(e) {
-    console.log(e.target)
-    this.count++;
-    const { dispatch } = this.props;
-    dispatch(showPop(false))
+    if (e.target.className.indexOf('play-list-wraper') !== -1) {
+      const {dispatch} = this.props;
+      dispatch(showPop(false))
+    }
+
+  }
+  playSong(e,index){
+    const {dispatch} = this.props;
+    dispatch(selectSong(index));
   }
   componentWillMount() {
-    const { dispatch } = this.props;
+    const {dispatch} = this.props;
     dispatch(fetchMusicData());
-  }
-  componentDidUpdate() {
-    console.log(this.props)
   }
 }

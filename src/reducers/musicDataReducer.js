@@ -17,3 +17,12 @@ export function getMusicDataReducer(state={tracks:[]},action){
     return state;
   }
 }
+
+export function getMusicUrlDataReducer(state = [],action){
+  switch(action.type){
+    case actionTypes.GET_MUSIC_URL_DATA:
+    return state.concat(action.data);
+    default:
+    return state;
+  }
+}
