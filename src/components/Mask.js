@@ -16,14 +16,6 @@ export default class Mask extends Component {
         this.refs.maskDiv.className = 'mask fade-enter';
     }
     
-    // componentDidUpdate(prevProps, prevState) {
-    //     if(!prevProps.isShowPop){
-    //         //this.refs.maskDiv.className = 'mask fade-enter'
-    //     }else{
-    //         this.refs.maskDiv.className = 'mask fade-leave'
-    //     }
-    // }
-    
     componentWillUpdate(nextProps, nextState) {
         if(nextProps.isShowPop){
             this.refs.maskDiv.className = 'mask fade-enter-active'

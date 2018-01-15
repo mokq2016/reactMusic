@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {showPop} from '../actions/popAction'
 import {fetMusicUrlData} from '../actions/musicDataAction'
+import MusicDetail from './MusicDetail'
 export default class Footer extends Component {
   isPlaying = false;
   render() {
     return (
       <div className='footer-bar'>
         <audio ref='myAudio' src={this.props.musicData.url}/>
+        <MusicDetail {...this.props}/>
         <div className='show-playing'>
           <img
             src={this
