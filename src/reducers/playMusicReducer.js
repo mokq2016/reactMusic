@@ -7,9 +7,7 @@ export function getCurrPlayMusic(state = {
   url: 'http://www.mokq.xin/assets/music/111.mp3'
 
 }, action) {
-  console.log(action)
-  switch (action.type) {
-    
+  switch (action.type) { 
     case actionTypes.PLAY_MUSIC:
       return {
         ...state,

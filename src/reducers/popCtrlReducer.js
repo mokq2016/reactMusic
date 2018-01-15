@@ -2,14 +2,13 @@ import * as actionTypes from '../constants/constant'
 
 export function showPopReducer(state = {
   isShowPop: false,
-  startAnimate: false
+  showPlayList: false,
+  showMusicSheetPop:false
 }, action) {
 
   switch (action.type) {
-    case actionTypes.SHOW_PLAYLIST_POP:
-      return Object.assign({}, state, {isShowPop: action.isShow});
     case actionTypes.SHOW_POP:
-      return Object.assign({}, state, {startAnimate: action.startAnimate});
+      return Object.assign({}, state, action);
     default:
       return state;
   }

@@ -1,28 +1,21 @@
 import * as actionTypes from '../constants/constant'
 
-export  function showPlayListAction(isShow){
-  return{
-    type:actionTypes.SHOW_PLAYLIST_POP,
-    isShow
-  }
-}
-function startAnimate(startAnimate){
+export  function showPopAction(showObj){
   return{
     type:actionTypes.SHOW_POP,
-    startAnimate
+    ...showObj
   }
 }
 export function showPop(showPop){
   return (dispatch,getState) =>{
-    if(showPop){
-      dispatch(showPlayListAction(showPop))
-      dispatch(startAnimate(showPop));
+    if(showPop.isShowPop){ //显示遮罩时
+      dispatch(showPopAction(showPop))
     }else{
-      dispatch(startAnimate(showPop));
-      dispatch(showPlayListAction(showPop));
-      // setTimeout(() => {
-      //   dispatch(showPlayListAction(showPop))
-      // }, 600);
+      dispatch(showPopAction({
+        isShowPop: false,
+        showPlayList: false,
+        showMusicSheetPop:false
+      }));
     }
    
   }

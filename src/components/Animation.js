@@ -9,8 +9,4 @@ export default class Animation extends Component {
     )
   }
   
-  componentWillUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState)
-  }
-  
 }

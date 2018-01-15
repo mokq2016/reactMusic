@@ -6,16 +6,13 @@ import {selectSong} from '../actions/playMusicAction'
 export default class PlayList extends Animation {
   constructor(props) {
     super(props)
-    this.state = {
-      isShow: false
-    }
   }
   render() {
     //return (
     return super.render(
       <div className='play-list-wraper' onClick={e => this.clickHandle(e)}>
       <div
-        className={this.props.isShowPop
+        className={this.props.showPlayList
         ? 'play-list '
         : 'play-list '}>
         <div className='header-bar'>
@@ -48,12 +45,12 @@ export default class PlayList extends Animation {
 
         </div>
       </div>
-    </div>, this.props.isShowPop, 'slide')
+    </div>, this.props.showPlayList, 'slide')
   }
   clickHandle(e) {
     if (e.target.className.indexOf('play-list-wraper') !== -1) {
       const {dispatch} = this.props;
-      dispatch(showPop(false))
+      dispatch(showPop({isShowPop:false}));
     }
 
   }

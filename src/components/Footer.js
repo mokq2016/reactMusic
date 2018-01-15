@@ -32,10 +32,7 @@ export default class Footer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this
-      .refs
-      .myAudio
-      .play();
+    this.refs.myAudio.play();
       this.isPlaying = true;
       this.refs.play.className = 'icon icon-pause';
   }
@@ -44,21 +41,15 @@ export default class Footer extends Component {
     if(this.isPlaying){
       this.isPlaying = false;
       this.refs.play.className = 'icon icon-play';
-      this
-      .refs
-      .myAudio
-      .pause()
+      this.refs.myAudio.pause();
     }else{
       this.isPlaying = true;
       this.refs.play.className = 'icon icon-pause';
-      this
-      .refs
-      .myAudio
-      .play()
+      this.refs.myAudio.play();
     }
   }
   clickHandle(e) {
     const {dispatch} = this.props;
-    dispatch(showPop(true))
+    dispatch(showPop({isShowPop:true,showPlayList:true}))
   }
 }
