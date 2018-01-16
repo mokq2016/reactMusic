@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import Range from './Range'
 
 export default class MusicDetail extends Component {
   render() {
@@ -7,12 +8,12 @@ export default class MusicDetail extends Component {
         <div
           className='bg-div'
           style={{
-          backgroundImage: `url(${this
-            .props
-            .musicData
-            .imgUrl
-            .replace(/{size}/g, 100)})`
-        }}/>
+            backgroundImage: `url(${this
+              .props
+              .musicData
+              .imgUrl
+              .replace(/{size}/g, 100)})`
+          }} />
         <div className='music-content'>
           <header className="music-detail-header">
             <i className="icon icon-back"></i>
@@ -23,14 +24,18 @@ export default class MusicDetail extends Component {
             <i className="icon icon-share"></i>
           </header>
           <div className='cd-div'>
-            <div className='plank-div'></div>
+            <div className='plank-div'>
+              <div className='switch-div' style={{backgroundImage:'url(imgs/swith.png)'}}>
+
+              </div>
+            </div>
             <div className='img-div animate'>
-              <div className='cd-bg' style={{background:`url(imgs/cd-mine.png)`,backgroundSize:'100%'}}></div>
+              <div className='cd-bg' style={{ background: `url(imgs/cd-mine.png)`, backgroundSize: '100%' }}></div>
               <img src={this
-            .props
-            .musicData
-            .imgUrl
-            .replace(/{size}/g, 200)}/>
+                .props
+                .musicData
+                .imgUrl
+                .replace(/{size}/g, 200)} />
             </div>
             <div className='op-div'></div>
           </div>
@@ -41,7 +46,9 @@ export default class MusicDetail extends Component {
           </div>
           <footer className="music-detail-footer">
             <div className='range-div'>
-              22
+              <span className='curTime'>00.00</span>
+              <Range />
+              <span className='totalTime'>00.00</span>
             </div>
             <div className='ctrl-div'>
               <i className="icon icon-music-shunxu"></i>
