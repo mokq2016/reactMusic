@@ -3,6 +3,8 @@ import Footer from '../components/Footer'
 
 const mapStateToProps = (state, ownProps) => ({
   musicData:state.getCurrPlayMusic,
+  isShowMusicDetail:state.showPopReducer.isShowMusicDetail,
+  musicIsPlay:state.playMusic.musicIsPlay
 })
 
 

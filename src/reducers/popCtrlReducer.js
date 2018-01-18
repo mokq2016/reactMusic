@@ -3,7 +3,8 @@ import * as actionTypes from '../constants/constant'
 export function showPopReducer(state = {
   isShowPop: false,
   showPlayList: false,
-  showMusicSheetPop:false
+  showMusicSheetPop:false,
+  isShowMusicDetail:false
 }, action) {
 
   switch (action.type) {

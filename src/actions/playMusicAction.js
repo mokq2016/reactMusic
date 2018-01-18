@@ -4,7 +4,7 @@ import http from '../utils/http';
 
 function playSong(data){
   return {
-    type:actionTypes.PLAY_MUSIC,
+    type:actionTypes.GET_CUR_MUSIC,
     data
   }
 }
@@ -15,9 +15,15 @@ export function selectSong(hash){
         isShowPop: false,
         showPlayList: false,
       }));
-      dispatch(playSong(data))
+      dispatch(playSong(data));
+      dispatch(playMusic(true));
     })
   }
 }
 
-
+export function playMusic(isPlay){
+  return {
+    type:actionTypes.PLAY_MUSIC,
+    playMusic:isPlay
+  }
+}

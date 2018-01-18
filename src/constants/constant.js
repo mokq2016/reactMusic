@@ -11,3 +11,5 @@ export const SHOW_POP = 'SHOW_POP';
 export const GET_MUSIC_URL_DATA = 'GET_MUSIC_URL_DATA';
 
 export const PLAY_MUSIC = 'PLAY_MUSIC';
+
+export const GET_CUR_MUSIC = 'GET_CUR_MUSIC';

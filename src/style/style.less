@@ -448,6 +448,10 @@
           left: 50%;
           transform: translateX(-16px);
           z-index: 1;
+          transition:all 0.3s;
+        }
+        .pause{
+          transform: rotate(-30deg) translate3d(16px,-16px,0);
         }
       }
       .img-div{
@@ -473,7 +477,22 @@
         
       }
       .animate{
-        animation: goRotate 16s linear infinite 0.1s;
+        animation: goRotate 16s linear infinite 0.1s forwards normal;
+      }
+      .op-div{
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 110px;
+        .icon{
+          width: 40px;
+          line-height: 40px;
+          display: inline-block;
+          font-size: 20px;
+          margin: 0 6px;
+
+        }
       }
     }
     .music-detail-footer{
