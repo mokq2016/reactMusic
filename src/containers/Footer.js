@@ -4,7 +4,8 @@ import Footer from '../components/Footer'
 const mapStateToProps = (state, ownProps) => ({
   musicData:state.getCurrPlayMusic,
   isShowMusicDetail:state.showPopReducer.isShowMusicDetail,
-  musicIsPlay:state.playMusic.musicIsPlay
+  musicIsPlay:state.playMusic.musicIsPlay,
+  currentTime:state.updataMusicTime.time
 })
 
 

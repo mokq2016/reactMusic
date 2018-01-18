@@ -28,3 +28,15 @@ export function playMusic(state = {musicIsPlay:false},action){
       return state;
   }
 }
+
+export function updataMusicTime(state = {time:0},action){
+  switch (action.type) { 
+    case actionTypes.UPDATE_MUSIC_TIME:
+      return {
+        ...state,
+        ...{time:action.time}
+      }
+    default:
+      return state;
+  }
+}

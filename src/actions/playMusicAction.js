@@ -22,8 +22,20 @@ export function selectSong(hash){
 }
 
 export function playMusic(isPlay){
+  if(isPlay){
+    document.querySelector('#myAudio').play()
+  }else{
+    document.querySelector('#myAudio').pause()
+  }
   return {
     type:actionTypes.PLAY_MUSIC,
     playMusic:isPlay
+  }
+}
+
+export function updateMusicTime(time){
+  return {
+    type:actionTypes.UPDATE_MUSIC_TIME,
+    time
   }
 }

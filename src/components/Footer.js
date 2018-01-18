@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {showPop,showPopAction} from '../actions/popAction'
 import {fetMusicUrlData} from '../actions/musicDataAction'
-import {playMusic} from '../actions/playMusicAction'
+import {playMusic,updateMusicTime} from '../actions/playMusicAction'
 import MusicDetail from './MusicDetail'
 
 export default class Footer extends Component {
@@ -11,7 +11,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div className='footer-bar' onClick={ e=>{this.showMusicDetail()}}>
-        <audio ref='myAudio' id='myAudio' src={this.props.musicData.url}/>
+        <audio ref='myAudio' id='myAudio' src={this.props.musicData.url} onCanPlay={e => this.canPlay(e)} onTimeUpdate={e => this.musicTimeUpdate(e)}/>
         <MusicDetail isShow={this.props.isShowMusicDetail} {...this.props}/>      
         <div className='show-playing'>
           <img
@@ -38,12 +38,11 @@ export default class Footer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(!prevProps.musicIsPlay && this.props.musicIsPlay){
-      this.refs.myAudio.play();
-    }else if(prevProps.musicIsPlay && !this.props.musicIsPlay){
-      this.refs.myAudio.pause();
-    }
-    console.log(prevProps,prevState)
+    // if(!prevProps.musicIsPlay && this.props.musicIsPlay){
+    //   this.canPlay();
+    // }else if(prevProps.musicIsPlay && !this.props.musicIsPlay){
+    //   this.refs.myAudio.pause();
+    // }
   }
 
   playClick(e) {
@@ -63,5 +62,16 @@ export default class Footer extends Component {
   showMusicDetail(){
     const {dispatch} = this.props;
     dispatch(showPopAction({isShowMusicDetail:true}))
+  }
+  musicTimeUpdate(){
+    
+    const {dispatch} = this.props;
+    dispatch(updateMusicTime(document.querySelector('#myAudio').currentTime ))
+  }
+  canPlay(e){
+    
+    if(this.props.musicIsPlay){
+      this.refs.myAudio.play();
+    }
   }
 }

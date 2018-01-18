@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { getMainDataReducer , getMusicDataReducer,getMusicUrlDataReducer} from './musicDataReducer'
 import { showPopReducer} from './popCtrlReducer'
-import { getCurrPlayMusic,playMusic} from './playMusicReducer'
+import { getCurrPlayMusic,playMusic,updataMusicTime} from './playMusicReducer'
 
 const rootReducer = combineReducers({
   getMusicUrlDataReducer,
@@ -9,7 +9,8 @@ const rootReducer = combineReducers({
   getCurrPlayMusic,
   getMusicDataReducer,
   showPopReducer,
-  playMusic
+  playMusic,
+  updataMusicTime
 })
 
 export default rootReducer

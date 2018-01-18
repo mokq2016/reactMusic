@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import Range from './Range'
-import { showPopAction } from '../actions/popAction'
+import {showPop,showPopAction} from '../actions/popAction'
 import { playMusic } from '../actions/playMusicAction'
 
 export default class MusicDetail extends Component {
+  $audio = null;
+  constructor(props){
+    super(props);
+    this.state = {
+      totalTime:'00:00',
+    }
+  }
   render() {
     return (
       <div className="music-detail-wraper" style={{ display: this.props.isShow ? 'block' : 'none' }}>
@@ -55,16 +62,16 @@ export default class MusicDetail extends Component {
           </div>
           <footer className="music-detail-footer">
             <div className='range-div'>
-              <span className='curTime'>00.00</span>
-              <Range />
-              <span className='totalTime'>00.00</span>
+              <span className='curTime'>{this.formatTime(this.props.currentTime) }</span>
+              <Range {...this.props} curTime={this.props.currentTime} totalTime={this.state.totalTime}/>
+              <span className='totalTime'>{this.formatTime(this.state.totalTime) }</span>
             </div>
             <div className='ctrl-div'>
               <i className="icon icon-music-shunxu"></i>
               <i className="icon icon-prevdetail"></i>
-              <i className="icon icon-playdetail" onClick={e => this.playClick(e)}></i>
+              <i className={this.props.musicIsPlay?'icon icon-pause-detail':"icon icon-playdetail"} onClick={e => this.playClick(e)}></i>
               <i className="icon icon-nextdetail"></i>
-              <i className="icon icon-list-music"></i>
+              <i className="icon icon-list-music" onClick={e => this.showPlayList(e)}></i>
             </div>
 
           </footer>
@@ -88,5 +95,27 @@ export default class MusicDetail extends Component {
     } else {
       dispatch(playMusic(true))
     }
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    
+    if(!prevProps.isShow && this.props.isShow){
+      this.$audio = document.querySelector('#myAudio');
+      this.setState({
+        totalTime:this.$audio.duration
+      })
+    }
+  }
+
+  formatTime(time){
+    if (isNaN(time)) return '00:00'
+    let min = time / 60 > 9 ? Math.floor(time / 60) : '0' + Math.floor(time / 60)
+    let miao = time % 60 > 10 ? Math.floor(time % 60) : '0' + Math.floor(time % 60)
+    return min + ':' + miao
+  }
+  showPlayList(e){
+    e.stopPropagation();
+    const {dispatch} = this.props;
+    dispatch(showPop({isShowPop:true,showPlayList:true}))
   }
 }
