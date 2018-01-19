@@ -5,9 +5,6 @@ import {playMusic,updateMusicTime} from '../actions/playMusicAction'
 import MusicDetail from './MusicDetail'
 
 export default class Footer extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className='footer-bar' onClick={ e=>{this.showMusicDetail()}}>
