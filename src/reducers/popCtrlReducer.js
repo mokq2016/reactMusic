@@ -4,7 +4,8 @@ export function showPopReducer(state = {
   isShowPop: false,
   showPlayList: false,
   showMusicSheetPop:false,
-  isShowMusicDetail:false
+  isShowMusicDetail:false,
+  showSlidebar:false
 }, action) {
 
   switch (action.type) {

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header'
+import Header from './containers/Header'
 import Footer from './containers/Footer'
-import Find from './components/Find'
-import Slidebar from './components/Slidebar'
+import Slidebar from './containers/Slidebar'
 import PlayList from './containers/PlayList'
 import Mask from './containers/Mask'
 
@@ -16,7 +14,7 @@ class App extends Component {
           <Header pathName={this.props.location.pathname} />
         </div>
         <Footer />
-        <Slidebar />
+        <Slidebar/>
         <PlayList />
         <Mask/>
       </div>

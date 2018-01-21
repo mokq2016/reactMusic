@@ -14,7 +14,8 @@ export function showPop(showPop){
       dispatch(showPopAction({
         isShowPop: false,
         showPlayList: false,
-        showMusicSheetPop:false
+        showMusicSheetPop:false,
+        showSlidebar:false
       }));
     }
    

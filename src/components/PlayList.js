@@ -1,12 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {fetchMusicData} from '../actions/musicDataAction'
 import {showPop} from '../actions/popAction'
 import Animation from './Animation'
-import {selectSong} from '../actions/playMusicAction'
+import {selectSong,changePlayMode} from '../actions/playMusicAction'
 export default class PlayList extends Animation {
-  constructor(props) {
-    super(props)
-  }
   render() {
     //return (
     return super.render(
@@ -16,9 +13,11 @@ export default class PlayList extends Animation {
         ? 'play-list '
         : 'play-list '}>
         <div className='header-bar'>
-          <div className='play-type'>
-            <i className='icon icon-music-random'/>
-            <span>{'列表循环'}({33})</span>
+          <div className='play-type' onClick={e =>{e.stopPropagation;this.props.dispatch(changePlayMode())}}>
+            <i className={this.props.playMode === 0?'icon icon-music-danqu1':this.props.playMode === 1?'icon icon-music-shunxu':'icon icon-music-random'}/>
+            <span>{this.props.playMode === 0?'单曲循环':this.props.playMode === 1?'列表循环':'随机播放'}({this
+            .props
+            .tracks.length})</span>
           </div>
           <div className='op-div'>
             <label>
@@ -35,7 +34,7 @@ export default class PlayList extends Animation {
           {this
             .props
             .tracks
-            .map((item, index) => <div key={index} onClick={e=> this.playSong(e,item.hash)} className='music-item'>
+            .map((item, index) => <div key={index} onClick={e=> this.playSong(e,item.hash,index)} className='music-item'>
               <div className='music-name'>
                 <label>{item.filename}</label>
                 <span></span>
@@ -54,9 +53,9 @@ export default class PlayList extends Animation {
     }
 
   }
-  playSong(e,index){
+  playSong(e,hash,index){
     const {dispatch} = this.props;
-    dispatch(selectSong(index));
+    dispatch(selectSong(hash,index));
   }
   componentWillMount() {
     const {dispatch} = this.props;

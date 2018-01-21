@@ -219,9 +219,8 @@
 }
 .slidebar{
   position: fixed;
-  z-index: 10000;
+  z-index: 10004;
   top: 0;
-  display: none;
   .slide-wraper{
     height: 100vh;
     width: 86vw;
@@ -229,22 +228,110 @@
     z-index: 10001;
     position: fixed;
   }
-  &::after{
-    position: fixed;
-    content: '';
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background:rgba(0,0,0,.5);
-  }
+
   .slide-header{
     .user-info{
-      background-image: url(http://www.daiwei.org/index/images/img/indeximg.jpg);
+      height: 168px;
+      background-image: url(http://p1.music.126.net/2xgok0VJnzqEq8CB-hZJNw==/18896206835490832.jpg);
       background-size: cover;
+      color: #fff;
+      position: relative;
+      box-sizing: border-box;
+      padding: 50px 15px 15px;
+      img{
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        bottom: 50px;
+      }
+      .user-detail{
+        position: absolute;
+        bottom: 20px;
+        .level{
+          font-size: 8px;
+          padding: 1px 4px;
+          border-radius: 8px;
+          color: #fff;
+          font-weight: 400;
+          border: 1px solid #fff;
+          margin-left: 10px;
+          vertical-align: middle;
+        }
+      }
+      .sign{
+        display: inline-block;
+      height: 14px;
+      line-height: 14px;
+      position: absolute;
+      bottom: 15px;
+      font-size: 12px;
+      right: 15px;
+      padding: 4px 8px;
+      border: 1px solid #e1e1e1;
+      border-radius: 12px;
+      color: #fff;
+      i{
+        height: 14px;
+      margin-right: 5px;
+      vertical-align: top;
+      }
+      }
     }
   }
-  
+  .slide-content{
+    color: #999;
+    .slide-item{
+      height: 40px;
+      line-height: 40px;
+      padding: 0 15px;
+      i{
+        font-size: 16px;
+      }
+      span{
+        display: inline-block;
+        vertical-align: middle;
+       
+      }
+      .desc{
+        font-size: 10px;
+        float: right;
+        margin-top: -2px;
+      }
+      .title{
+        font-size: 14px;
+        margin-left: 6px;
+        margin-top: -4px;
+      }
+    }
+  }
+  .slide-footer{
+    position: fixed;
+    bottom: 0;
+    width: 86vw;
+    border-top: 1px solid rgba(7,17,27,.1);
+    div{
+      display: inline-block;
+      line-height: 40px;
+      text-align: center;
+      color: #999;
+    }
+    .nightmode{
+      width: 40%;
+    }
+    .setting,.exit{
+      width: 30%;
+    }
+    i{
+      font-size: 18px;
+     margin-right: 4px;
+    }
+  }
+  .split-div{
+    background: rgb(240, 240, 240);
+    height: 5px;
+    border-color: rgb(238, 238, 238);
+  }
 }
 .find-menu{
   display: flex;
@@ -367,6 +454,9 @@
       }
       .play-type{
         margin-left: 16px;
+        span{
+          margin-left: 28px;
+        }
       }
       .op-div{
         label{
@@ -523,7 +613,7 @@
         .icon-playdetail,.icon-pause-detail{
           font-size: 46px;
         }
-        .icon-list-music,.icon-music-shunxu{
+        .icon-list-music,.icon-music-shunxu,.icon-music-random,.icon-music-danqu1{
           margin-left: 0;
           font-size: 20px;
         }
@@ -607,6 +697,18 @@
   width: 100%;
   bottom: 0;
   transform: translate3d(0,100%,0)
+}
+.slide-left-leave-active{
+  transition: transform 0.6s;
+  transform: translate3d(-100%,0,0);
+  top: 0;
+  width: 86vw;
+}
+.slide-left-enter-active{
+  transition: transform 0.6s;
+  transform: translate3d(0,0,0);
+  top: 0;
+  width: 86vw;
 }
 .slide-enter-active{
   transition: transform 0.6s;

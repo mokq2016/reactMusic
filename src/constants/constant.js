@@ -15,3 +15,7 @@ export const PLAY_MUSIC = 'PLAY_MUSIC';
 export const GET_CUR_MUSIC = 'GET_CUR_MUSIC';
 
 export const UPDATE_MUSIC_TIME = 'UPDATE_MUSIC_TIME';
+
+export const CHANGE_PLAYMODE = 'CHANGE_PLAYMODE';
+
+export const UPDATE_TOTALTIME = 'UPDATE_TOTALTIME';
