@@ -3,14 +3,19 @@ import {
   Route
 } from 'react-router-dom'
 import App from '../App'
-import Find from '../components/Find'
-import Home from '../containers/Home'
+import Bundle from '../components/Bundle'
 
-// const community = (location, cb) => {
-//   require.ensure([], require => {
-//     cb(null, require('../components/Community').default)
-//   }, 'community')
-// }
+const Find = (props) => (
+  <Bundle load={() => import('../components/Find')}>
+      {(Find) => <Find {...props}/>}
+  </Bundle>
+);
+const Home = (props) => (
+  <Bundle load={() => import('../containers/Home')}>
+      {(Home) => <Home {...props}/>}
+  </Bundle>
+);
+
 const routes = (
   <Route>
     <div>
