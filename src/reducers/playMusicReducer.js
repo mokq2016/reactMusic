@@ -4,7 +4,7 @@ export function getCurrPlayMusic(state = {
   songName: '刚好遇见你',
   singerName: '李玉刚',
   imgUrl: 'http://p1.music.126.net/lDyytkTaPYVTb1Vpide6AA==/18591642115187138.jpg?param=130y130',
-  url: 'http://www.mokq.xin/assets/music/111.mp3',
+  url: 'https://www.mokq.club/assets/music/111.mp3',
   index:-1
 }, action) {
   switch (action.type) { 

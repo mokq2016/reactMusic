@@ -59,6 +59,7 @@ export default class MusicDetail extends Component {
                   backgroundSize: '100%'
                 }}></div>
                 <img
+                  alt="tupian"
                   src={this
                   .props
                   .musicData

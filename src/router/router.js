@@ -7,21 +7,21 @@ import Bundle from '../components/Bundle'
 
 const Find = (props) => (
   <Bundle load={() => import('../components/Find')}>
-      {(Find) => <Find {...props}/>}
+    {(Find) => <Find {...props} />}
   </Bundle>
 );
 const Home = (props) => (
   <Bundle load={() => import('../containers/Home')}>
-      {(Home) => <Home {...props}/>}
+    {(Home) => <Home {...props} />}
   </Bundle>
 );
 
 const routes = (
   <Route>
     <div>
-    <Route path="/" component={App} />
-    <Route path="/home" component={Home} />
-    <Route path="/find" component={Find} />
+      <Route path="/" component={App} />
+      <Route path="/home" component={Home} />
+      <Route path="/find" component={Find} />
     </div>
   </Route>
 )

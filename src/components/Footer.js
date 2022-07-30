@@ -1,3 +1,11 @@
+/*
+ * @Author: mkq 873302396@qq.com
+ * @Date: 2018-01-21 17:41:07
+ * @LastEditors: mkq 873302396@qq.com
+ * @LastEditTime: 2022-07-30 15:32:57
+ * @FilePath: \workPlace_reactMusic\react-music\src\components\Footer.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import React, {Component} from 'react'
 import {showPop,showPopAction} from '../actions/popAction'
 import {fetMusicUrlData} from '../actions/musicDataAction'
@@ -12,6 +20,7 @@ export default class Footer extends Component {
         <MusicDetail isShow={this.props.isShowMusicDetail} {...this.props}/>      
         <div className='show-playing' >
           <img
+            alt="图片"
             src={this
             .props
             .musicData
