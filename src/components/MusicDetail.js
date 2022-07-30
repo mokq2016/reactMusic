@@ -96,6 +96,7 @@ export default class MusicDetail extends Component {
                   ? 'icon icon-music-shunxu'
                   : 'icon icon-music-random'}
                 onClick={e => {
+                // eslint-disable-next-line no-unused-expressions
                 e.stopPropagation;
                 this
                   .props
